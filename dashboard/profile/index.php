@@ -203,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['userid'])) {
         .alert-text { color: #92400E; font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
         .cta-button { 
             display: inline-block; 
-            background: linear-gradient(135deg, #0950DC, #0742B8); 
+            background: linear-gradient(135deg, #90278e, #0742B8); 
             color: white; 
             text-decoration: none; 
             padding: 14px 28px; 
@@ -211,16 +211,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['userid'])) {
             font-weight: 600; 
             font-size: 14px; 
             text-align: center; 
-            box-shadow: 0 4px 12px rgba(9, 80, 220, 0.3);
+            box-shadow: 0 4px 12px rgba(144, 39, 142, 0.3);
         }
         .tips-section { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 32px 0; }
         .tips-title { color: #222222; font-size: 16px; font-weight: 600; margin-bottom: 16px; }
         .tip-item { color: #6B7280; margin-bottom: 8px; padding-left: 20px; position: relative; font-size: 14px; }
-        .tip-item:before { content: "•"; color: #0950DC; font-weight: bold; position: absolute; left: 0; }
+        .tip-item:before { content: "•"; color: #90278e; font-weight: bold; position: absolute; left: 0; }
         .confirmation-text { background: #ECFDF5; border: 1px solid #10B981; padding: 16px; border-radius: 8px; margin: 20px 0; text-align: center; }
         .confirmation-message { color: #059669; font-weight: 600; }
         .footer { background: #f8f9fa; padding: 24px 30px; text-align: center; color: #6B7280; font-size: 12px; }
-        .footer a { color: #0950DC; text-decoration: none; }
+        .footer a { color: #90278e; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -263,7 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['userid'])) {
                         <p>{$PasswordEmailWhy_PLACEHOLDER}</p>
                         <p style="font-size:10px; color:#D1D5DB; display:flex; align-items:center; justify-content:center; gap:8px;">
                             <span>⚡</span>
-                            <span>Engineered with <span style="color:#ef4444;">♥</span> by <a href="https://gymoneglobal.com" style="color:#0950DC;">GYM One</a></span>
+                            <span>Engineered with <span style="color:#ef4444;">♥</span> by <a href="https://gymoneglobal.com" style="color:#90278e;">GYM One</a></span>
                             <span>⚡</span>
                         </p>
                     </div>
@@ -343,13 +343,13 @@ $initials = strtoupper(mb_substr((string) $lastname, 0, 1) . mb_substr((string) 
   <link rel="shortcut icon" href="../../assets/img/brand/favicon.png" type="image/x-icon">
   <style>
     /* ====== Modern profil (scoped: .dsh) ====== */
-    .dsh { --d-accent: #0950dc; --d-accent2: #2f73f0; --d-ink: #0f172a; --d-muted: #64748b; --d-line: rgba(15, 23, 42, .08); }
+    .dsh { --d-accent: #90278e; --d-accent2: #2f73f0; --d-ink: #0f172a; --d-muted: #64748b; --d-line: rgba(15, 23, 42, .08); }
     .dsh * { box-sizing: border-box; }
 
     .dsh-welcome {
       display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-      background: linear-gradient(135deg, #0950dc, #2f73f0); color: #fff; border-radius: 20px;
-      padding: 22px 26px; margin-bottom: 22px; box-shadow: 0 16px 40px rgba(9, 80, 220, .28);
+      background: linear-gradient(135deg, #90278e, #2f73f0); color: #fff; border-radius: 20px;
+      padding: 22px 26px; margin-bottom: 22px; box-shadow: 0 16px 40px rgba(144, 39, 142, .28);
     }
     .dsh-logout {
       display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, .16);
@@ -372,7 +372,7 @@ $initials = strtoupper(mb_substr((string) $lastname, 0, 1) . mb_substr((string) 
 
     .dsh label, .dsh .form-label { font-size: 13px; font-weight: 600; color: var(--d-muted); margin-bottom: .35rem; display: block; }
     .dsh .form-control { width: 100%; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 10px 14px; font-size: 14px; background: #f8fafc; color: var(--d-ink); height: auto; box-shadow: none; transition: border-color .15s, box-shadow .15s, background .15s; }
-    .dsh .form-control:focus { border-color: var(--d-accent); background: #fff; box-shadow: 0 0 0 4px rgba(9, 80, 220, .12); outline: none; }
+    .dsh .form-control:focus { border-color: var(--d-accent); background: #fff; box-shadow: 0 0 0 4px rgba(144, 39, 142, .12); outline: none; }
     .dsh .form-group { margin-bottom: 14px; }
     .dsh .form-text { color: var(--d-muted); }
 

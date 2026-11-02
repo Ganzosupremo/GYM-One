@@ -169,6 +169,9 @@ $result = $conn->query($sql);
                         <a class="nav-link active" href="#"><?php echo $translations["trainerspage"]; ?></a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="../classes/"><?php echo $translations["classespage"] ?? "Clases y horarios"; ?></a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="../prices/"><?php echo $translations["pricespage"]; ?></a>
                     </li>
                     <li class="nav-item">

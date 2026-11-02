@@ -252,11 +252,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <style type="text/css">
     body, p, div { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px; }
     body { color: #222222; background-color: #f8f9fa; margin: 0; padding: 0; }
-    a { color: #0950DC; text-decoration: none; }
-    .cta-button { display: inline-block; background: linear-gradient(135deg, #0950DC, #0742B8); color: white; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 12px rgba(9,80,220,0.3); }
+    a { color: #90278e; text-decoration: none; }
+    .cta-button { display: inline-block; background: linear-gradient(135deg, #90278e, #0742B8); color: white; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 12px rgba(144, 39, 142,0.3); }
     .tips-section { background: #f8f9fa; padding: 24px; border-radius: 8px; margin: 32px 0; }
     .tip-item { color: #6B7280; margin-bottom: 8px; padding-left: 20px; position: relative; }
-    .tip-item:before { content: "•"; color: #0950DC; font-weight: bold; position: absolute; left: 0; }
+    .tip-item:before { content: "•"; color: #90278e; font-weight: bold; position: absolute; left: 0; }
     .footer { background: #f8f9fa; padding: 24px 30px; text-align: center; color: #6B7280; font-size: 12px; }
   </style>
 </head>
@@ -277,7 +277,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p style="color:#6B7280; font-size:16px; margin-bottom:32px;">{$translations["confirmemailheadertext"]}</p>
                 <a href="{$domain_url}/register/confirm.php?userid={$userid}" class="cta-button">{$translations["regconfirmbtn"]}</a>
                 <div style="margin:20px 0;">
-                  <a href="{$domain_url}" style="color:#0950DC; font-size:14px;">{$translations["confirmemailorlogin"]} →</a>
+                  <a href="{$domain_url}" style="color:#90278e; font-size:14px;">{$translations["confirmemailorlogin"]} →</a>
                 </div>
                 <div class="tips-section">
                   <h2 style="color:#333333; font-size:18px; font-weight:600; margin-bottom:16px;">{$translations["confirmemailfirst"]}</h2>
@@ -291,7 +291,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>{$ConfirmEmailFooterWhy_PLACEHOLDER}</p>
                 <p style="font-size:10px; color:#D1D5DB; display:flex; align-items:center; justify-content:center; gap:8px;">
                   <span>⚡</span>
-                  <span>Engineered with <span style="color:#ef4444;">♥</span> by <a href="https://gymoneglobal.com" style="color:#0950DC;">GYM One</a></span>
+                  <span>Engineered with <span style="color:#ef4444;">♥</span> by <a href="https://gymoneglobal.com" style="color:#90278e;">GYM One</a></span>
                   <span>⚡</span>
                 </p>
               </td>
@@ -347,8 +347,8 @@ EOD;
       display: flex; align-items: center; justify-content: center; overflow: hidden;
       transition: border-color .15s, box-shadow .15s, transform .15s; margin: 0;
     }
-    .reg-avatar:hover { border-color: #0950dc; box-shadow: 0 10px 26px rgba(9, 80, 220, .18); transform: translateY(-2px); }
-    .reg-avatar.has-img { border-style: solid; border-color: #0950dc; background: #fff; }
+    .reg-avatar:hover { border-color: #90278e; box-shadow: 0 10px 26px rgba(144, 39, 142, .18); transform: translateY(-2px); }
+    .reg-avatar.has-img { border-style: solid; border-color: #90278e; background: #fff; }
     .reg-avatar-img { width: 100%; height: 100%; object-fit: cover; display: none; }
     .reg-avatar.has-img .reg-avatar-img { display: block; }
     .reg-avatar.has-img .reg-avatar-placeholder { display: none; }
@@ -356,9 +356,9 @@ EOD;
     .reg-avatar-placeholder svg { width: 30px; height: 30px; }
     .reg-avatar-edit {
       position: absolute; right: 6px; bottom: 6px; width: 30px; height: 30px; border-radius: 50%;
-      background: linear-gradient(135deg, #0950dc, #2f73f0); color: #fff;
+      background: linear-gradient(135deg, #90278e, #2f73f0); color: #fff;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 14px rgba(9, 80, 220, .35); opacity: 0; transition: opacity .15s;
+      box-shadow: 0 6px 14px rgba(144, 39, 142, .35); opacity: 0; transition: opacity .15s;
     }
     .reg-avatar:hover .reg-avatar-edit, .reg-avatar.has-img .reg-avatar-edit { opacity: 1; }
     .reg-avatar-edit svg { width: 14px; height: 14px; }
@@ -410,9 +410,9 @@ EOD;
       box-shadow: none;
     }
     #register .form-control:focus {
-      border-color: #0950dc;
+      border-color: #90278e;
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(9, 80, 220, .12);
+      box-shadow: 0 0 0 4px rgba(144, 39, 142, .12);
       outline: none;
     }
     #register select.form-control {
@@ -435,19 +435,19 @@ EOD;
 
     /* Checkbox */
     #register .form-check { padding-left: 0; display: flex; align-items: center; gap: .6rem; margin-bottom: 1.3rem; }
-    #register .form-check-input { width: 20px; height: 20px; margin: 0; accent-color: #0950dc; flex: 0 0 auto; cursor: pointer; position: static; }
+    #register .form-check-input { width: 20px; height: 20px; margin: 0; accent-color: #90278e; flex: 0 0 auto; cursor: pointer; position: static; }
     #register .form-check-label { font-size: .9rem; color: #334155; margin: 0; cursor: pointer; }
 
     /* Gomb */
     #register .btn-primary {
       width: 100%;
-      background: linear-gradient(135deg, #0950dc, #2f73f0);
+      background: linear-gradient(135deg, #90278e, #2f73f0);
       border: none;
       border-radius: 14px;
       padding: .8rem 1rem;
       font-weight: 700;
       font-size: 1.02rem;
-      box-shadow: 0 12px 28px rgba(9, 80, 220, .32);
+      box-shadow: 0 12px 28px rgba(144, 39, 142, .32);
       transition: transform .15s, filter .15s;
     }
     #register .btn-primary:hover { filter: brightness(1.07); transform: translateY(-2px); }
@@ -456,7 +456,7 @@ EOD;
     /* Alsó link */
     #register .reg-foot { text-align: center; margin-top: 1.1rem; }
     #register .reg-foot small { color: #64748b; font-size: .9rem; }
-    #register .reg-foot a { color: #0950dc; font-weight: 700; text-decoration: none; }
+    #register .reg-foot a { color: #90278e; font-weight: 700; text-decoration: none; }
     #register .reg-foot a:hover { text-decoration: underline; }
 
     /* Alsó hullám kikapcsolva */
@@ -486,7 +486,7 @@ EOD;
     /* Halvány, statikus fényfoltok a háttérben */
     .reg-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
     .reg-blob { position: absolute; border-radius: 50%; filter: blur(90px); }
-    .reg-blob-1 { width: 380px; height: 380px; background: #0950dc; opacity: .10; top: -130px; left: -90px; }
+    .reg-blob-1 { width: 380px; height: 380px; background: #90278e; opacity: .10; top: -130px; left: -90px; }
     .reg-blob-2 { width: 340px; height: 340px; background: #6d28d9; opacity: .08; bottom: -120px; right: -90px; }
     .reg-blob-3 { width: 260px; height: 260px; background: #22d3ee; opacity: .06; top: 38%; right: 8%; }
 
@@ -509,7 +509,7 @@ EOD;
 
     /* Gomb – egyszínű márkakék */
     #register .btn-primary {
-      background: #0950dc !important;
+      background: #90278e !important;
       box-shadow: none !important;
     }
     #register .btn-primary:hover { background: #0742b8 !important; transform: none; }
@@ -520,7 +520,7 @@ EOD;
       text-align: center; padding: 28px 16px 24px; margin-top: 36px;
       color: #94a3b8; font-size: .85rem;
     }
-    .reg-copyright a { color: #0950dc; font-weight: 700; text-decoration: none; }
+    .reg-copyright a { color: #90278e; font-weight: 700; text-decoration: none; }
     .reg-copyright a:hover { text-decoration: underline; }
     .reg-copyright .reg-heart { color: #ef4444; }
   </style>

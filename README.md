@@ -2,6 +2,8 @@
 ---
 
 # GYM One - Open Source Gym Management Software
+
+> **Sankris Gymnastics:** esta es una versión adaptada de GYM One para gimnasia artística. Ver [SANKRIS.md](SANKRIS.md) para los cambios, los datos 2026 y la instalación.
 <p align="center"><img src="https://gymoneglobal.com/assets/img/text-color-logo.png" alt="project-image"></p>
 
 

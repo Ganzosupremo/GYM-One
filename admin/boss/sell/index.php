@@ -158,7 +158,7 @@ $conn->close();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../../assets/css/dashboard.css">
     <script src="https://unpkg.com/@zxing/browser@0.1.5"></script>
-    <link rel="shortcut icon" href="https://gymoneglobal.com/assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../assets/img/brand/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -170,7 +170,7 @@ $conn->close();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="../../../assets/img/logo.png" width="50px" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="../../../assets/img/brand/logo-white.png" width="50px" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -193,7 +193,7 @@ $conn->close();
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-2 sidenav hidden-xs text-center">
-                <h2><img src="../../../assets/img/logo.png" width="105px" alt="Logo"></h2>
+                <h2><img src="../../../assets/img/brand/logo-white.png" width="105px" alt="Logo"></h2>
                 <p class="lead mb-4 fs-4"><?php echo $business_name ?> - <?php echo $version; ?></p>
                 <ul class="nav nav-pills nav-stacked">
                     <li class="sidebar-item">
@@ -408,7 +408,7 @@ $conn->close();
 
     <!-- ===== STÍLUS (sellpick, narancs GYM One akcent) ===== -->
     <style>
-        .sellpick{ --sp-accent:#0950dc; --sp-accent2:#096ed2; --sp-ink:#0f172a; --sp-muted:#64748b; --sp-line:rgba(15,23,42,.08); margin-top:10px; }
+        .sellpick{ --sp-accent:#90278e; --sp-accent2:#3d59a7; --sp-ink:#0f172a; --sp-muted:#64748b; --sp-line:rgba(15,23,42,.08); margin-top:10px; }
         .sellpick *{ box-sizing:border-box; }
         .sp-title{ display:flex; align-items:center; gap:14px; margin:6px 0 18px; }
         .sp-title-icon{ width:48px; height:48px; border-radius:14px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#dbeafe,#bfdbfe); color:var(--sp-accent2); font-size:22px; }
@@ -423,7 +423,7 @@ $conn->close();
         #video-container{ position:relative; width:100%; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:#0b1020; border:1px solid var(--sp-line); }
         #video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
         .scan-frame{ position:absolute; inset:0; pointer-events:none; }
-        .scan-frame span{ position:absolute; width:34px; height:34px; border:3px solid rgba(9,80,220,.95); }
+        .scan-frame span{ position:absolute; width:34px; height:34px; border:3px solid rgba(144, 39, 142,.95); }
         .scan-frame span:nth-child(1){ top:16%; left:16%; border-right:none; border-bottom:none; border-radius:8px 0 0 0; }
         .scan-frame span:nth-child(2){ top:16%; right:16%; border-left:none; border-bottom:none; border-radius:0 8px 0 0; }
         .scan-frame span:nth-child(3){ bottom:16%; left:16%; border-right:none; border-top:none; border-radius:0 0 0 8px; }
@@ -438,7 +438,7 @@ $conn->close();
         .sp-search{ position:relative; margin:0 0 12px; }
         .sp-search i{ position:absolute; left:16px; top:50%; transform:translateY(-50%); color:#94a3b8; }
         #sp-q{ width:100%; padding:12px 16px 12px 44px; border-radius:13px; border:1.5px solid var(--sp-line); background:#f8fafc; font-size:15px; outline:none; transition:.15s; }
-        #sp-q:focus{ border-color:var(--sp-accent); background:#fff; box-shadow:0 0 0 4px rgba(9,80,220,.12); }
+        #sp-q:focus{ border-color:var(--sp-accent); background:#fff; box-shadow:0 0 0 4px rgba(144, 39, 142,.12); }
 
         #sp-results{ display:flex; flex-direction:column; gap:8px; max-height:340px; overflow:auto; }
         .sp-item{ display:flex; align-items:center; gap:12px; width:100%; text-align:left; border:1px solid var(--sp-line); background:#fff; border-radius:13px; padding:9px 12px; cursor:pointer; transition:.13s; }
@@ -449,9 +449,9 @@ $conn->close();
         .sp-empty{ padding:14px; text-align:center; color:var(--sp-muted); font-size:14px; background:#f8fafc; border:1px dashed var(--sp-line); border-radius:12px; }
 
         .sp-selected{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
-            background:linear-gradient(135deg,#eff6ff,#ffffff); border:1.5px solid #93c5fd; border-radius:18px; padding:16px 20px; margin-bottom:18px; box-shadow:0 12px 30px rgba(9,80,220,.12); }
+            background:linear-gradient(135deg,#eff6ff,#ffffff); border:1.5px solid #93c5fd; border-radius:18px; padding:16px 20px; margin-bottom:18px; box-shadow:0 12px 30px rgba(144, 39, 142,.12); }
         .sp-selected-left{ display:flex; align-items:center; gap:14px; }
-        .sp-avatar{ width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--sp-accent),var(--sp-accent2)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; box-shadow:0 8px 20px rgba(9,80,220,.3); position:relative; flex:0 0 56px; }
+        .sp-avatar{ width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--sp-accent),var(--sp-accent2)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; box-shadow:0 8px 20px rgba(144, 39, 142,.3); position:relative; flex:0 0 56px; }
         .sp-avatar .sp-ava-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:50%; }
         .sp-avatar--clickable{ cursor:zoom-in; }
         .sp-avatar--clickable:hover{ transform:scale(1.04); transition:transform .15s; }
@@ -461,18 +461,18 @@ $conn->close();
 
         /* ellenőrzés-állapot */
         .sp-verify{ margin-top:8px; font-size:14px; font-weight:700; }
-        .sp-verify-cta{ display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--sp-accent),var(--sp-accent2)); color:#fff; padding:9px 16px; border-radius:999px; box-shadow:0 8px 20px rgba(9,80,220,.3); animation:sp-cta-pulse 1.5s ease-in-out infinite; }
+        .sp-verify-cta{ display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer; background:linear-gradient(135deg,var(--sp-accent),var(--sp-accent2)); color:#fff; padding:9px 16px; border-radius:999px; box-shadow:0 8px 20px rgba(144, 39, 142,.3); animation:sp-cta-pulse 1.5s ease-in-out infinite; }
         .sp-verify-cta:hover{ filter:brightness(1.07); transform:translateY(-1px); }
         .sp-verify-done{ display:none; align-items:center; gap:7px; color:#15803d; }
         .sp-selected.is-verified .sp-verify-cta{ display:none; }
         .sp-selected.is-verified .sp-verify-done{ display:inline-flex; }
-        @keyframes sp-cta-pulse{ 0%,100%{ box-shadow:0 8px 20px rgba(9,80,220,.28) } 50%{ box-shadow:0 10px 30px rgba(9,80,220,.6) } }
+        @keyframes sp-cta-pulse{ 0%,100%{ box-shadow:0 8px 20px rgba(144, 39, 142,.28) } 50%{ box-shadow:0 10px 30px rgba(144, 39, 142,.6) } }
         .sp-selected:not(.is-verified) .sp-avatar::after{ content:""; position:absolute; inset:-6px; border-radius:50%; border:3px solid var(--sp-accent); animation:sp-ring 1.5s ease-out infinite; pointer-events:none; }
         @keyframes sp-ring{ 0%{ transform:scale(1); opacity:.75 } 100%{ transform:scale(1.3); opacity:0 } }
 
         .sp-selected-actions{ display:flex; gap:10px; flex-wrap:wrap; }
         .sp-btn{ display:inline-flex; align-items:center; gap:8px; border:none; border-radius:13px; padding:11px 20px; font-weight:700; font-size:14px; cursor:pointer; text-decoration:none; transition:.15s; }
-        .sp-btn-primary{ background:linear-gradient(135deg,var(--sp-accent),var(--sp-accent2)); color:#fff; box-shadow:0 8px 20px rgba(9,80,220,.3); }
+        .sp-btn-primary{ background:linear-gradient(135deg,var(--sp-accent),var(--sp-accent2)); color:#fff; box-shadow:0 8px 20px rgba(144, 39, 142,.3); }
         .sp-btn-primary:hover{ filter:brightness(1.05); transform:translateY(-1px); color:#fff; }
         .sp-btn-check{ background:#e0ecff; color:var(--sp-accent); }
         .sp-btn-check:hover{ background:#cfe0ff; }

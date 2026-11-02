@@ -170,6 +170,9 @@ $result = $conn->query($sql);
                         <a class="nav-link" href="../trainers"><?php echo $translations["trainerspage"]; ?></a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="../classes/"><?php echo $translations["classespage"] ?? "Clases y horarios"; ?></a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="#"><?php echo $translations["pricespage"]; ?></a>
                     </li>
                     <li class="nav-item">
@@ -206,7 +209,7 @@ $result = $conn->query($sql);
                 echo "<div class='card-body'>";
                 echo "<h5 class='card-title text-first'>" . htmlspecialchars($row["name"]) . "</h5>";
                 echo "<p class='card-text'>" . $translations["tickettableexpiry"] . ": " . htmlspecialchars($row["expire_days"]) . "</p>";
-                echo "<p class='card-text'><strong>" . $translations["price"] . ": " . htmlspecialchars($row["price"]) . " " . htmlspecialchars($currency) . "</strong></p>";
+                echo "<p class='card-text'><strong>" . $translations["price"] . ": " . htmlspecialchars($currency) . number_format((float) $row["price"], 2) . "</strong></p>";
                 $occasions = $row["occasions"] === NULL ? $translations["unlimited"] : htmlspecialchars($row["occasions"]);
 
                 echo "<p class='card-text'>" . $translations["tickettableoccassion"] . ": " . $occasions . "</p>";

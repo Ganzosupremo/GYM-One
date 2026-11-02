@@ -139,15 +139,19 @@ $alerts_html = '';
 $is_new_version_available = version_compare($latest_version, $current_version) > 0;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_event'])) {
-    $event_name = $conn->real_escape_string($_POST['event_name']);
-    $start_time = $conn->real_escape_string($_POST['start_time']);
-    $end_time = $conn->real_escape_string($_POST['end_time']);
-    $day_of_week = $conn->real_escape_string($_POST['day_of_week']);
-    $color = $conn->real_escape_string($_POST['color']);
+    $event_name = trim($_POST['event_name']);
+    $start_time = $_POST['start_time'];
+    $end_time = $_POST['end_time'];
+    $day_of_week = $_POST['day_of_week'];
+    $color = $_POST['color'];
+    // Sankris: programa (grupo/edad), cupo y si es clase de evaluación
+    $program_id = !empty($_POST['program_id']) ? (int) $_POST['program_id'] : null;
+    $capacity = ($_POST['capacity'] ?? '') !== '' ? (int) $_POST['capacity'] : null;
+    $is_evaluation = isset($_POST['is_evaluation']) ? 1 : 0;
 
-    $sql = "INSERT INTO timetable (event_name, start_time, end_time, day_of_week, color) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO timetable (event_name, start_time, end_time, day_of_week, color, program_id, capacity, is_evaluation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sssss', $event_name, $start_time, $end_time, $day_of_week, $color);
+    $stmt->bind_param('sssssiii', $event_name, $start_time, $end_time, $day_of_week, $color, $program_id, $capacity, $is_evaluation);
     $stmt->execute();
     $stmt->close();
     $alerts_html .= "<div class='alert alert-success'>{$translations["eventadded"]}</div>";
@@ -155,11 +159,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_event'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_event'])) {
-    $event_name = $conn->real_escape_string($_POST['event_name']);
+    // Sankris: se elimina un solo horario (por id), no todas las clases con el mismo nombre
+    $event_id = (int) $_POST['event_id'];
 
-    $sql = "DELETE FROM timetable WHERE event_name = ?";
+    $sql = "DELETE FROM timetable WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('s', $event_name);
+    $stmt->bind_param('i', $event_id);
     $stmt->execute();
     $stmt->close();
     $alerts_html .= "<div class='alert alert-warning'>{$translations["eventdeleted"]}</div>";
@@ -178,9 +183,18 @@ foreach ($days_of_week as $day) {
     $stmt->close();
 }
 
-$sql = "SELECT event_name FROM timetable ORDER BY event_name";
-$result = $conn->query($sql);
-$allEvents = $result->fetch_all(MYSQLI_ASSOC);
+$sql = "SELECT id, event_name, day_of_week, start_time, end_time FROM timetable ORDER BY event_name, FIELD(day_of_week, ?, ?, ?, ?, ?, ?, ?), start_time";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('sssssss', ...$days_of_week);
+$stmt->execute();
+$allEvents = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
+
+$programs = [];
+$programsResult = $conn->query("SELECT id, name FROM programs ORDER BY sort_order, name");
+if ($programsResult) {
+    $programs = $programsResult->fetch_all(MYSQLI_ASSOC);
+}
 
 $hours = [];
 $start = strtotime('06:00');
@@ -205,7 +219,7 @@ $conn->close();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../../assets/css/dashboard.css">
-    <link rel="shortcut icon" href="https://gymoneglobal.com/assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../assets/img/brand/favicon.png" type="image/x-icon">
 </head>
 <!-- ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -219,7 +233,7 @@ $conn->close();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="../../../assets/img/logo.png" width="50px" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="../../../assets/img/brand/logo-white.png" width="50px" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -272,7 +286,7 @@ $conn->close();
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-2 sidenav hidden-xs text-center">
-                <h2><img src="../../../assets/img/logo.png" width="105px" alt="Logo"></h2>
+                <h2><img src="../../../assets/img/brand/logo-white.png" width="105px" alt="Logo"></h2>
                 <p class="lead mb-4 fs-4"><?php echo $business_name ?> - <?php echo $version; ?></p>
                 <ul class="nav nav-pills nav-stacked">
                     <li class="sidebar-item">
@@ -440,6 +454,8 @@ $conn->close();
                                         rel="stylesheet">
                                     <script
                                         src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+                                    <script
+                                        src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/locales-all.global.min.js"></script>
 
                                     <style>
                                         #calendar {
@@ -447,7 +463,7 @@ $conn->close();
                                         }
 
                                         .fc-timegrid-slot {
-                                            height: 25px !important;
+                                            height: 34px !important;
                                             /* 1 óra = 60px */
                                         }
                                     </style>
@@ -491,7 +507,7 @@ $conn->close();
                                             $end = $eventDate . " " . $event["end_time"];
 
                                             $fc_events[] = [
-                                                "title" => $event["event_name"],
+                                                "title" => $event["event_name"] . (!empty($event["capacity"]) ? " (" . $event["capacity"] . ")" : ""),
                                                 "start" => $start,
                                                 "end" => $end,
                                                 "color" => $event["color"]
@@ -513,8 +529,8 @@ $conn->close();
 
                                             let calendar = new FullCalendar.Calendar(calendarEl, {
                                                 initialView: 'timeGridWeek',
-                                                slotMinTime: "06:00:00",
-                                                slotMaxTime: "23:00:00",
+                                                slotMinTime: "07:00:00",
+                                                slotMaxTime: "20:00:00",
                                                 allDaySlot: true,
                                                 height: "auto",
                                                 events: timetableEvents,
@@ -522,7 +538,7 @@ $conn->close();
                                                 editable: false,
                                                 eventOverlap: true,
                                                 nowIndicator: true,
-                                                locale: 'hu',
+                                                locale: '<?php echo strtolower($lang_code); ?>',
 
                                                 headerToolbar: {
                                                     left: '',
@@ -582,8 +598,25 @@ $conn->close();
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            <label for="program_id"><?php echo $translations["program"] ?? "Programa"; ?></label>
+                                            <select class="form-control" id="program_id" name="program_id">
+                                                <option value="">-</option>
+                                                <?php foreach ($programs as $program): ?>
+                                                    <option value="<?= (int) $program['id'] ?>"><?= htmlspecialchars($program['name']) ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="capacity"><?php echo $translations["classcapacity"] ?? "Cupo"; ?></label>
+                                            <input type="number" min="1" class="form-control" id="capacity" name="capacity" placeholder="6">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="is_evaluation" value="1">
+                                                <?php echo $translations["evaluationclass"] ?? "Clase de evaluación inicial"; ?></label>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="color">Color</label>
-                                            <input type="color" class="form-control" id="color" name="color" value="#0950dc"
+                                            <input type="color" class="form-control" id="color" name="color" value="#90278e"
                                                 required>
                                         </div>
                                         <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle"></i>
@@ -598,11 +631,11 @@ $conn->close();
                                     <form action="" method="POST" class="mb-4">
                                         <input type="hidden" name="delete_event" value="1">
                                         <div class="form-group">
-                                            <label for="event_name"><?php echo $translations["eventdelete"]; ?></label>
-                                            <select class="form-control" id="event_name" name="event_name" required>
+                                            <label for="event_id"><?php echo $translations["eventdelete"]; ?></label>
+                                            <select class="form-control" id="event_id" name="event_id" required>
                                                 <?php foreach ($allEvents as $event): ?>
-                                                    <option value="<?= htmlspecialchars($event['event_name']) ?>">
-                                                        <?= htmlspecialchars($event['event_name']) ?></option>
+                                                    <option value="<?= (int) $event['id'] ?>">
+                                                        <?= htmlspecialchars($event['event_name'] . ' · ' . $event['day_of_week'] . ' ' . substr($event['start_time'], 0, 5) . '-' . substr($event['end_time'], 0, 5)) ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>

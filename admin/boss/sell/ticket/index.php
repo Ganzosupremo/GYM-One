@@ -141,7 +141,7 @@ $is_new_version_available = is_string($latest_version)
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../../../assets/css/dashboard.css">
-    <link rel="shortcut icon" href="https://gymoneglobal.com/assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../../assets/img/brand/favicon.png" type="image/x-icon">
 </head>
 <!-- ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -157,7 +157,7 @@ $is_new_version_available = is_string($latest_version)
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="../../../../assets/img/logo.png" width="50px" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="../../../../assets/img/brand/logo-white.png" width="50px" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -199,7 +199,7 @@ $is_new_version_available = is_string($latest_version)
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-2 sidenav hidden-xs text-center">
-                <h2><img src="../../../../assets/img/logo.png" width="105px" alt="Logo"></h2>
+                <h2><img src="../../../../assets/img/brand/logo-white.png" width="105px" alt="Logo"></h2>
                 <p class="lead mb-4 fs-4"><?php echo $business_name ?> - <?php echo $version; ?></p>
                 <ul class="nav nav-pills nav-stacked">
                     <li class="sidebar-item">
@@ -577,8 +577,8 @@ $is_new_version_available = is_string($latest_version)
     <!-- ===================== STÍLUS (tk, kék GYM One akcent) ===================== -->
     <style>
         .tk {
-            --tk-accent: #0950dc;
-            --tk-accent2: #096ed2;
+            --tk-accent: #90278e;
+            --tk-accent2: #3d59a7;
             --tk-ink: #0f172a;
             --tk-muted: #64748b;
             --tk-line: rgba(15, 23, 42, .08);
@@ -592,14 +592,14 @@ $is_new_version_available = is_string($latest_version)
             display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
             background: linear-gradient(135deg, #eff6ff, #ffffff);
             border: 1.5px solid #93c5fd; border-radius: 18px; padding: 16px 20px; margin-bottom: 16px;
-            box-shadow: 0 12px 30px rgba(9, 80, 220, .10);
+            box-shadow: 0 12px 30px rgba(144, 39, 142, .10);
         }
         .tk-buyer-left { display: flex; align-items: center; gap: 14px; }
         .tk-avatar {
             width: 56px; height: 56px; flex: 0 0 56px; border-radius: 50%; position: relative;
             background: linear-gradient(135deg, var(--tk-accent), var(--tk-accent2)); color: #fff;
             display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800;
-            box-shadow: 0 8px 20px rgba(9, 80, 220, .3);
+            box-shadow: 0 8px 20px rgba(144, 39, 142, .3);
         }
         .tk-avatar .tk-ava-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         .tk-buyer-cap { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--tk-muted); }
@@ -638,7 +638,7 @@ $is_new_version_available = is_string($latest_version)
             box-shadow: 0 10px 30px rgba(15, 23, 42, .06); display: flex; flex-direction: column;
             transition: .15s;
         }
-        .tk-pass:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(9, 80, 220, .14); border-color: #bfdbfe; }
+        .tk-pass:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(144, 39, 142, .14); border-color: #bfdbfe; }
         .tk-pass-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
         .tk-pass-icon {
             width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
@@ -661,7 +661,7 @@ $is_new_version_available = is_string($latest_version)
             display: inline-flex; align-items: center; gap: 8px; border: none; border-radius: 13px;
             padding: 11px 20px; font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: none; transition: .15s;
         }
-        .tk-btn-primary { background: linear-gradient(135deg, var(--tk-accent), var(--tk-accent2)); color: #fff; box-shadow: 0 8px 20px rgba(9, 80, 220, .3); }
+        .tk-btn-primary { background: linear-gradient(135deg, var(--tk-accent), var(--tk-accent2)); color: #fff; box-shadow: 0 8px 20px rgba(144, 39, 142, .3); }
         .tk-btn-primary:hover { filter: brightness(1.06); transform: translateY(-1px); color: #fff; }
         .tk-btn-success { background: linear-gradient(135deg, #16a34a, #15803d); color: #fff; box-shadow: 0 8px 20px rgba(22, 163, 74, .3); }
         .tk-btn-success:hover { filter: brightness(1.06); transform: translateY(-1px); color: #fff; }
@@ -681,7 +681,7 @@ $is_new_version_available = is_string($latest_version)
             width: 100%; padding: 12px 16px; border-radius: 13px; border: 1.5px solid var(--tk-line);
             background: #f8fafc; font-size: 15px; outline: none; transition: .15s;
         }
-        .tk-input:focus { border-color: var(--tk-accent); background: #fff; box-shadow: 0 0 0 4px rgba(9, 80, 220, .12); }
+        .tk-input:focus { border-color: var(--tk-accent); background: #fff; box-shadow: 0 0 0 4px rgba(144, 39, 142, .12); }
         .tk-amount { position: relative; }
         .tk-amount .tk-input { padding-right: 56px; }
         .tk-amount-cur { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-weight: 700; color: var(--tk-muted); }
@@ -698,7 +698,7 @@ $is_new_version_available = is_string($latest_version)
 
         /* Termék kártya */
         .tk-product { background: #fff; border: 1px solid var(--tk-line); border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, .06); display: flex; flex-direction: column; transition: .15s; }
-        .tk-product:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(9, 80, 220, .12); }
+        .tk-product:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(144, 39, 142, .12); }
         .tk-product.is-out { opacity: .65; }
         .tk-product-img { position: relative; height: 150px; background: #f8fafc; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--tk-line); }
         .tk-product-img img { max-height: 130px; max-width: 80%; width: auto; object-fit: contain; }

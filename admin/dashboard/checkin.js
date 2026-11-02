@@ -379,7 +379,7 @@
     // --- modern design-rendszer (csak a beléptetőre szabva) ----------------
 
     $('<style>').prop('type', 'text/css').html(`
-        .checkin-modal{ --cm-accent:#0950dc; --cm-accent2:#096ed2; --cm-ink:#0f172a; --cm-muted:#64748b; --cm-line:rgba(15,23,42,.08); }
+        .checkin-modal{ --cm-accent:#90278e; --cm-accent2:#3d59a7; --cm-ink:#0f172a; --cm-muted:#64748b; --cm-line:rgba(15,23,42,.08); }
         .checkin-modal *{ box-sizing:border-box; }
         .checkin-modal .modal-dialog{ max-width:460px; margin:6vh auto; }
         .checkin-modal .modal-content{
@@ -415,7 +415,7 @@
         }
         .checkin-modal #video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
         .checkin-modal .scan-frame{ position:absolute; inset:0; pointer-events:none; }
-        .checkin-modal .scan-frame span{ position:absolute; width:36px; height:36px; border:3px solid rgba(9,80,220,.95); }
+        .checkin-modal .scan-frame span{ position:absolute; width:36px; height:36px; border:3px solid rgba(144, 39, 142,.95); }
         .checkin-modal .scan-frame span:nth-child(1){ top:18%; left:18%; border-right:none; border-bottom:none; border-radius:8px 0 0 0; }
         .checkin-modal .scan-frame span:nth-child(2){ top:18%; right:18%; border-left:none; border-bottom:none; border-radius:0 8px 0 0; }
         .checkin-modal .scan-frame span:nth-child(3){ bottom:18%; left:18%; border-right:none; border-top:none; border-radius:0 0 0 8px; }
@@ -438,7 +438,7 @@
             width:100%; height:auto; padding:13px 18px 13px 46px; border-radius:14px;
             border:1.5px solid var(--cm-line); background:#f8fafc; font-size:15px; outline:none; transition:.15s; color:var(--cm-ink);
         }
-        .checkin-modal #search:focus{ border-color:var(--cm-accent); background:#fff; box-shadow:0 0 0 4px rgba(9,80,220,.12); }
+        .checkin-modal #search:focus{ border-color:var(--cm-accent); background:#fff; box-shadow:0 0 0 4px rgba(144, 39, 142,.12); }
 
         /* --- találatok --- */
         .checkin-modal #results{ margin-top:10px; }
@@ -463,7 +463,7 @@
             width:84px; height:84px; margin:0 auto 12px; border-radius:50%;
             background:linear-gradient(135deg,var(--cm-accent),var(--cm-accent2)); color:#fff;
             display:flex; align-items:center; justify-content:center; font-size:32px; font-weight:800;
-            box-shadow:0 12px 30px rgba(9,80,220,.35); position:relative;
+            box-shadow:0 12px 30px rgba(144, 39, 142,.35); position:relative;
         }
         .checkin-modal .cm-avatar-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:50%; }
         .checkin-modal .cm-avatar-zoom{ display:flex; position:absolute; right:0; bottom:0; width:28px; height:28px; border-radius:50%; background:var(--cm-accent); color:#fff; align-items:center; justify-content:center; font-size:13px; z-index:2; border:2px solid #fff; box-shadow:0 2px 8px rgba(15,23,42,.3); }
@@ -474,14 +474,14 @@
         .checkin-modal .cm-verify{ margin-top:12px; font-size:14px; font-weight:700; }
         .checkin-modal .cm-verify-cta{ display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer;
             background:linear-gradient(135deg,var(--cm-accent),var(--cm-accent2)); color:#fff;
-            padding:10px 18px; border-radius:999px; box-shadow:0 8px 20px rgba(9,80,220,.3);
+            padding:10px 18px; border-radius:999px; box-shadow:0 8px 20px rgba(144, 39, 142,.3);
             animation:cm-cta-pulse 1.5s ease-in-out infinite; }
         .checkin-modal .cm-verify-cta i{ font-size:16px; }
         .checkin-modal .cm-verify-cta:hover{ filter:brightness(1.07); transform:translateY(-1px); }
         .checkin-modal .cm-verify-done{ display:none; align-items:center; gap:7px; color:#15803d; }
         .checkin-modal .cm-verified .cm-verify-cta{ display:none; }
         .checkin-modal .cm-verified .cm-verify-done{ display:inline-flex; }
-        @keyframes cm-cta-pulse{ 0%,100%{ box-shadow:0 8px 20px rgba(9,80,220,.28) } 50%{ box-shadow:0 10px 30px rgba(9,80,220,.6) } }
+        @keyframes cm-cta-pulse{ 0%,100%{ box-shadow:0 8px 20px rgba(144, 39, 142,.28) } 50%{ box-shadow:0 10px 30px rgba(144, 39, 142,.6) } }
         /* lüktető gyűrű az avatar körül, amíg nincs ellenőrizve */
         .checkin-modal #userDetails:not(.cm-verified) .cm-avatar::after{ content:""; position:absolute; inset:-6px; border-radius:50%; border:3px solid var(--cm-accent); animation:cm-ring 1.5s ease-out infinite; pointer-events:none; }
         @keyframes cm-ring{ 0%{ transform:scale(1); opacity:.75 } 100%{ transform:scale(1.3); opacity:0 } }
@@ -529,7 +529,7 @@
         .checkin-modal .cm-locker-num{
             display:inline-flex; align-items:center; justify-content:center; min-width:120px; height:120px; padding:0 20px;
             border-radius:28px; background:linear-gradient(135deg,var(--cm-accent),var(--cm-accent2)); color:#fff;
-            font-size:52px; font-weight:800; box-shadow:0 16px 36px rgba(9,80,220,.4);
+            font-size:52px; font-weight:800; box-shadow:0 16px 36px rgba(144, 39, 142,.4);
             animation:cm-breathe 2.2s ease-in-out infinite;
         }
         @keyframes cm-breathe{ 0%,100%{ transform:scale(1) } 50%{ transform:scale(1.04) } }
@@ -537,7 +537,7 @@
         /* --- footer + gombok --- */
         .checkin-modal .modal-footer{ display:flex; gap:10px; justify-content:flex-end; padding:16px 22px; border-top:1px solid var(--cm-line); }
         .checkin-modal .cm-btn{ display:inline-flex; align-items:center; gap:8px; border:none; border-radius:13px; padding:11px 20px; font-weight:700; font-size:14px; cursor:pointer; transition:.15s; text-decoration:none; }
-        .checkin-modal .cm-btn-primary{ background:linear-gradient(135deg,var(--cm-accent),var(--cm-accent2)); color:#fff; box-shadow:0 8px 20px rgba(9,80,220,.3); }
+        .checkin-modal .cm-btn-primary{ background:linear-gradient(135deg,var(--cm-accent),var(--cm-accent2)); color:#fff; box-shadow:0 8px 20px rgba(144, 39, 142,.3); }
         .checkin-modal .cm-btn-primary:hover{ filter:brightness(1.05); transform:translateY(-1px); color:#fff; }
         .checkin-modal .cm-btn-primary[disabled]{ opacity:.45; cursor:not-allowed; box-shadow:none; transform:none; }
         .checkin-modal .cm-btn-ghost{ background:#f1f5f9; color:#475569; }
