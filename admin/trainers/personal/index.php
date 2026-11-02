@@ -214,6 +214,7 @@ $conn->close();
                 <ul class="nav navbar-nav">
                     <li><a href="../../dashboard"><i class="bi bi-speedometer"></i>
                             <?php echo $translations["mainpage"]; ?></a></li>
+                    <li><a href="../../sankris/"><i class="bi bi-people-fill"></i> Sankris: familias y cobros</a></li>
                     <li><a href="../../users"><i class="bi bi-people"></i> <?php echo $translations["users"]; ?></a>
                     </li>
                     <li><a href="../../statistics"><i class="bi bi-bar-chart"></i>
@@ -267,6 +268,11 @@ $conn->close();
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="../../dashboard/">
                             <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="../../sankris/">
+                            <i class="bi bi-people-fill"></i> Sankris: familias y cobros
                         </a>
                     </li>
                     <li class="sidebar-item">

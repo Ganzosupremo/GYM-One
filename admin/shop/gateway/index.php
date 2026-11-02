@@ -161,6 +161,11 @@ $conn->close();
                             <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="../../sankris/">
+                            <i class="bi bi-people-fill"></i> Sankris: familias y cobros
+                        </a>
+                    </li>
                     <?php if ($is_boss == 1) {
                             ?>
                             <li class="sidebar-header">

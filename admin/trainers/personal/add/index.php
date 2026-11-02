@@ -163,6 +163,7 @@ $conn->close();
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="../../../dashboard"><i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?></a></li>
+                    <li><a href="../../../sankris/"><i class="bi bi-people-fill"></i> Sankris: familias y cobros</a></li>
                     <li><a href="../../../users"><i class="bi bi-people"></i> <?php echo $translations["users"]; ?></a></li>
                     <li><a href="../../../statistics"><i class="bi bi-bar-chart"></i> <?php echo $translations["statspage"]; ?></a></li>
                     <li><a href="../../../boss/sell"><i class="bi bi-shop"></i> <?php echo $translations["sellpage"]; ?></a></li>
@@ -206,6 +207,11 @@ $conn->close();
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="../../../dashboard/">
                             <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="../../../sankris/">
+                            <i class="bi bi-people-fill"></i> Sankris: familias y cobros
                         </a>
                     </li>
                     <li class="sidebar-item">

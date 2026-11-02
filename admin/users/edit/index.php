@@ -376,6 +376,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userid'])) {
         <ul class="nav navbar-nav">
           <li><a href="../../dashboard"><i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?></a>
           </li>
+          <li><a href="../../sankris/"><i class="bi bi-people-fill"></i> Sankris: familias y cobros</a></li>
           <li class="active"><a href="../"><i class="bi bi-people"></i> <?php echo $translations["users"]; ?></a></li>
           <li><a href="../../statistics"><i class="bi bi-bar-chart"></i> <?php echo $translations["statspage"]; ?></a>
           </li>
@@ -426,6 +427,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userid'])) {
             <a class="sidebar-link" href="../../dashboard/">
               <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
             </a>
+          </li>
+          <li class="sidebar-item">
+              <a class="sidebar-link" href="../../sankris/">
+                  <i class="bi bi-people-fill"></i> Sankris: familias y cobros
+              </a>
           </li>
           <li class="sidebar-item active">
             <a class="sidebar-link" href="#">

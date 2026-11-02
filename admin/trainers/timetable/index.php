@@ -8,6 +8,14 @@ if (!isset($_SESSION['adminuser'])) {
 
 $userid = $_SESSION['adminuser'];
 
+// Sankris: make sure the module columns (coach, sala, cupo...) exist before saving a class
+try {
+    $sankrisApp = require __DIR__ . '/../../../sankris/bootstrap.php';
+    $sankrisApp->migrator()->migrate();
+} catch (\Throwable $e) {
+    error_log('[sankris] migrate: ' . $e->getMessage());
+}
+
 $alerts_html = "";
 
 function read_env_file($file_path)
@@ -148,10 +156,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_event'])) {
     $program_id = !empty($_POST['program_id']) ? (int) $_POST['program_id'] : null;
     $capacity = ($_POST['capacity'] ?? '') !== '' ? (int) $_POST['capacity'] : null;
     $is_evaluation = isset($_POST['is_evaluation']) ? 1 : 0;
+    $trainer_id = !empty($_POST['trainer_id']) ? (int) $_POST['trainer_id'] : null;
+    $room = trim((string) ($_POST['room'] ?? '')) !== '' ? mb_substr(trim($_POST['room']), 0, 50) : null;
 
-    $sql = "INSERT INTO timetable (event_name, start_time, end_time, day_of_week, color, program_id, capacity, is_evaluation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO timetable (event_name, start_time, end_time, day_of_week, color, program_id, capacity, is_evaluation, trainer_id, room) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sssssiii', $event_name, $start_time, $end_time, $day_of_week, $color, $program_id, $capacity, $is_evaluation);
+    $stmt->bind_param('sssssiiiis', $event_name, $start_time, $end_time, $day_of_week, $color, $program_id, $capacity, $is_evaluation, $trainer_id, $room);
     $stmt->execute();
     $stmt->close();
     $alerts_html .= "<div class='alert alert-success'>{$translations["eventadded"]}</div>";
@@ -194,6 +204,11 @@ $programs = [];
 $programsResult = $conn->query("SELECT id, name FROM programs ORDER BY sort_order, name");
 if ($programsResult) {
     $programs = $programsResult->fetch_all(MYSQLI_ASSOC);
+}
+$trainers_list = [];
+$trainersResult = $conn->query("SELECT id, name FROM trainers ORDER BY name");
+if ($trainersResult) {
+    $trainers_list = $trainersResult->fetch_all(MYSQLI_ASSOC);
 }
 
 $hours = [];
@@ -239,6 +254,7 @@ $conn->close();
                 <ul class="nav navbar-nav">
                     <li><a href="../../dashboard"><i class="bi bi-speedometer"></i>
                             <?php echo $translations["mainpage"]; ?></a></li>
+                    <li><a href="../../sankris/"><i class="bi bi-people-fill"></i> Sankris: familias y cobros</a></li>
                     <li><a href="../../users"><i class="bi bi-people"></i> <?php echo $translations["users"]; ?></a>
                     </li>
                     <li><a href="../../statistics"><i class="bi bi-bar-chart"></i>
@@ -292,6 +308,11 @@ $conn->close();
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="../../dashboard/">
                             <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="../../sankris/">
+                            <i class="bi bi-people-fill"></i> Sankris: familias y cobros
                         </a>
                     </li>
                     <li class="sidebar-item">
@@ -609,6 +630,19 @@ $conn->close();
                                         <div class="form-group">
                                             <label for="capacity"><?php echo $translations["classcapacity"] ?? "Cupo"; ?></label>
                                             <input type="number" min="1" class="form-control" id="capacity" name="capacity" placeholder="6">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="trainer_id">Coach</label>
+                                            <select class="form-control" id="trainer_id" name="trainer_id">
+                                                <option value="">-</option>
+                                                <?php foreach ($trainers_list as $trainer): ?>
+                                                    <option value="<?= (int) $trainer['id'] ?>"><?= htmlspecialchars($trainer['name']) ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="room">Sala / área</label>
+                                            <input type="text" class="form-control" id="room" name="room" maxlength="50" placeholder="Área de gimnasia">
                                         </div>
                                         <div class="checkbox">
                                             <label><input type="checkbox" name="is_evaluation" value="1">

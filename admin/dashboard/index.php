@@ -303,6 +303,7 @@ if ($countryCode !== '') {
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#"><i class="bi bi-speedometer"></i>
                             <?php echo $translations["mainpage"]; ?></a></li>
+                    <li><a href="../sankris/"><i class="bi bi-people-fill"></i> Sankris: familias y cobros</a></li>
                     <li><a href="../users"><i class="bi bi-people"></i> <?php echo $translations["users"]; ?></a></li>
                     <li><a href="../statistics"><i class="bi bi-bar-chart"></i>
                             <?php echo $translations["statspage"]; ?></a></li>
@@ -356,6 +357,11 @@ if ($countryCode !== '') {
                     <li class="sidebar-item active">
                         <a class="sidebar-link" href="#">
                             <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="../sankris/">
+                            <i class="bi bi-people-fill"></i> Sankris: familias y cobros
                         </a>
                     </li>
                     <li class="sidebar-item">
