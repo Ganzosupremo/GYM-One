@@ -334,7 +334,7 @@ $inv_pm = ($method == 'profile') ? $translations["profilebalancepay"] : (($metho
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purchase Confirmation</title>
     <style>
-        /* PRIMARY: #0950DC (vibrant blue) ACCENT-DARK: #0742B8 TEXT: #222 MUTED: #6B7280 */
+        /* PRIMARY: #90278e (vibrant blue) ACCENT-DARK: #0742B8 TEXT: #222 MUTED: #6B7280 */
         * {
             margin: 0;
             padding: 0;
@@ -426,7 +426,7 @@ $inv_pm = ($method == 'profile') ? $translations["profilebalancepay"] : (($metho
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #0950DC, #0742B8);
+            background: linear-gradient(135deg, #90278e, #0742B8);
             color: white;
             text-decoration: none;
             padding: 16px 32px;
@@ -434,7 +434,7 @@ $inv_pm = ($method == 'profile') ? $translations["profilebalancepay"] : (($metho
             font-weight: 600;
             font-size: 16px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(9, 80, 220, 0.3);
+            box-shadow: 0 4px 12px rgba(144, 39, 142, 0.3);
         }
 
         .cta-container {
@@ -465,7 +465,7 @@ $inv_pm = ($method == 'profile') ? $translations["profilebalancepay"] : (($metho
         }
 
         .footer a {
-            color: #0950DC;
+            color: #90278e;
             text-decoration: none;
         }
     </style>
@@ -518,7 +518,7 @@ $inv_pm = ($method == 'profile') ? $translations["profilebalancepay"] : (($metho
                         <p>{$PayEmailFooterWhy_PLACEHOLDER}</p>
                         <p style="font-size:10px; color:#D1D5DB; display:flex; align-items:center; justify-content:center; gap:8px;">
                             <span>⚡</span>
-                            <span>Engineered with <span style="color:#ef4444;">♥</span> by <a href="https://gymoneglobal.com" style="color:#0950DC;">GYM One</a></span>
+                            <span>Engineered with <span style="color:#ef4444;">♥</span> by <a href="https://gymoneglobal.com" style="color:#90278e;">GYM One</a></span>
                             <span>⚡</span>
                         </p>
                     </div>
@@ -577,7 +577,7 @@ $is_new_version_available = version_compare($latest_version, $current_version) >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../../../assets/css/dashboard.css">
-    <link rel="shortcut icon" href="https://gymoneglobal.com/assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../../assets/img/brand/favicon.png" type="image/x-icon">
 </head>
 <!-- ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -593,12 +593,13 @@ $is_new_version_available = version_compare($latest_version, $current_version) >
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="../../../../assets/img/logo.png" width="50px" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="../../../../assets/img/brand/logo-white.png" width="50px" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="../../../dashboard"><i class="bi bi-speedometer"></i>
                             <?php echo $translations["mainpage"]; ?></a></li>
+                    <li><a href="../../../sankris/"><i class="bi bi-people-fill"></i> Sankris: familias y cobros</a></li>
                     <li><a href="../../../users"><i class="bi bi-people"></i> <?php echo $translations["users"]; ?></a>
                     </li>
                     <li><a href="../../../statistics"><i class="bi bi-bar-chart"></i>
@@ -647,12 +648,17 @@ $is_new_version_available = version_compare($latest_version, $current_version) >
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-2 sidenav hidden-xs text-center">
-                <h2><img src="../../../../assets/img/logo.png" width="105px" alt="Logo"></h2>
+                <h2><img src="../../../../assets/img/brand/logo-white.png" width="105px" alt="Logo"></h2>
                 <p class="lead mb-4 fs-4"><?php echo $business_name ?> - <?php echo $version; ?></p>
                 <ul class="nav nav-pills nav-stacked">
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="../../../dashboard/">
                             <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="../../../sankris/">
+                            <i class="bi bi-people-fill"></i> Sankris: familias y cobros
                         </a>
                     </li>
                     <li class="sidebar-item">

@@ -142,7 +142,7 @@ while ($row = $result->fetch_assoc()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* PRIMARY: #0950DC (vibrant blue) ACCENT-DARK: #0742B8 TEXT: #222 MUTED: #6B7280 */
+        /* PRIMARY: #90278e (vibrant blue) ACCENT-DARK: #0742B8 TEXT: #222 MUTED: #6B7280 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f8f9fa; }
         .email-container { max-width: 680px; margin: 0 auto; background: white; }
@@ -158,7 +158,7 @@ while ($row = $result->fetch_assoc()) {
         .consequence-item:before { content: "•"; color: #F59E0B; font-weight: bold; position: absolute; left: 0; }
         .cta-button { 
             display: inline-block; 
-            background: linear-gradient(135deg, #0950DC, #0742B8); 
+            background: linear-gradient(135deg, #90278e, #0742B8); 
             color: white; 
             text-decoration: none; 
             padding: 16px 32px; 
@@ -166,11 +166,11 @@ while ($row = $result->fetch_assoc()) {
             font-weight: 600; 
             font-size: 16px; 
             text-align: center; 
-            box-shadow: 0 4px 12px rgba(9, 80, 220, 0.3);
+            box-shadow: 0 4px 12px rgba(144, 39, 142, 0.3);
         }
         .cta-container { text-align: center; margin: 32px 0; }
         .footer { background: #f8f9fa; padding: 24px 30px; text-align: center; color: #6B7280; font-size: 12px; }
-        .footer a { color: #0950DC; text-decoration: none; }
+        .footer a { color: #90278e; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -203,7 +203,7 @@ while ($row = $result->fetch_assoc()) {
                         <p>{$ConfirmEmailFooterWhy_PLACEHOLDER}</p>
                         <p style="font-size:10px; color:#D1D5DB; display:flex; align-items:center; justify-content:center; gap:8px;">
                             <span>⚡</span>
-                            <span>Engineered with <span style="color:#ef4444;">♥</span> by <a href="https://gymoneglobal.com" style="color:#0950DC;">GYM One</a></span>
+                            <span>Engineered with <span style="color:#ef4444;">♥</span> by <a href="https://gymoneglobal.com" style="color:#90278e;">GYM One</a></span>
                             <span>⚡</span>
                         </p>
                     </div>

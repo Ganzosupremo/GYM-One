@@ -245,7 +245,7 @@ if ($countryCode !== '') {
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
     <script src="https://unpkg.com/@zxing/browser@0.1.5"></script>
 
-    <link rel="shortcut icon" href="https://gymoneglobal.com/assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/img/brand/favicon.png" type="image/x-icon">
 </head>
 <!-- ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -297,12 +297,13 @@ if ($countryCode !== '') {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="../../assets/img/logo.png" width="50px" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="../../assets/img/brand/logo-white.png" width="50px" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#"><i class="bi bi-speedometer"></i>
                             <?php echo $translations["mainpage"]; ?></a></li>
+                    <li><a href="../sankris/"><i class="bi bi-people-fill"></i> Sankris: familias y cobros</a></li>
                     <li><a href="../users"><i class="bi bi-people"></i> <?php echo $translations["users"]; ?></a></li>
                     <li><a href="../statistics"><i class="bi bi-bar-chart"></i>
                             <?php echo $translations["statspage"]; ?></a></li>
@@ -350,12 +351,17 @@ if ($countryCode !== '') {
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-2 sidenav hidden-xs text-center">
-                <h2><img src="../../assets/img/logo.png" width="105px" alt="Logo"></h2>
+                <h2><img src="../../assets/img/brand/logo-white.png" width="105px" alt="Logo"></h2>
                 <p class="lead mb-4 fs-4"><?php echo $business_name ?> - <?php echo $version; ?></p>
                 <ul class="nav nav-pills nav-stacked">
                     <li class="sidebar-item active">
                         <a class="sidebar-link" href="#">
                             <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="../sankris/">
+                            <i class="bi bi-people-fill"></i> Sankris: familias y cobros
                         </a>
                     </li>
                     <li class="sidebar-item">

@@ -86,13 +86,13 @@ $conn->close();
     <link rel="shortcut icon" href="../../assets/img/brand/favicon.png" type="image/x-icon">
     <style>
         /* ====== Modern számlák (scoped: .dsh) ====== */
-        .dsh { --d-accent: #0950dc; --d-ink: #0f172a; --d-muted: #64748b; --d-line: rgba(15, 23, 42, .08); }
+        .dsh { --d-accent: #90278e; --d-ink: #0f172a; --d-muted: #64748b; --d-line: rgba(15, 23, 42, .08); }
         .dsh * { box-sizing: border-box; }
 
         .dsh-welcome {
             display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-            background: linear-gradient(135deg, #0950dc, #2f73f0); color: #fff; border-radius: 20px;
-            padding: 22px 26px; margin-bottom: 22px; box-shadow: 0 16px 40px rgba(9, 80, 220, .28);
+            background: linear-gradient(135deg, #90278e, #2f73f0); color: #fff; border-radius: 20px;
+            padding: 22px 26px; margin-bottom: 22px; box-shadow: 0 16px 40px rgba(144, 39, 142, .28);
         }
         .dsh-welcome-hi { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; opacity: .85; }
         .dsh-welcome-name { font-size: 24px; font-weight: 800; margin-top: 2px; }
@@ -134,8 +134,8 @@ $conn->close();
             width: 38px; height: 38px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center;
             font-size: 16px; text-decoration: none; transition: .15s; border: 1px solid transparent;
         }
-        .dsh-iconbtn-view { background: #e6efff; color: #0950dc; }
-        .dsh-iconbtn-view:hover { background: #0950dc; color: #fff; }
+        .dsh-iconbtn-view { background: #e6efff; color: #90278e; }
+        .dsh-iconbtn-view:hover { background: #90278e; color: #fff; }
         .dsh-iconbtn-dl { background: #f1f5f9; color: #475569; }
         .dsh-iconbtn-dl:hover { background: #475569; color: #fff; }
 

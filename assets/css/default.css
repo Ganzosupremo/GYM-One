@@ -1,7 +1,7 @@
 :root{
-    --main-color: #0950dc;
+    --main-color: #90278e;
     --secondary-color: #333333;
-    --active-color: #0a62ff;
+    --active-color: #eb008b;
 }
 
 body{
@@ -92,4 +92,59 @@ i:hover,i:active{
     margin: 0;
     font-size: 24px;
     font-weight: bold;
+}
+
+/* ===== Sankris Gymnastics ===== */
+:root {
+    --sankris-pink: #eb008b;
+    --sankris-purple: #90278e;
+    --sankris-violet: #6a50a0;
+    --sankris-blue: #3d59a7;
+    --secondary-color: #2a2233;
+}
+
+nav.navbar img.img {
+    background-color: #fff;
+    border-radius: 14px;
+    padding: 6px 10px;
+}
+
+.footer img {
+    background-color: #fff;
+    border-radius: 14px;
+    padding: 6px 10px;
+}
+
+.bg-imageback {
+    background-color: var(--sankris-purple);
+    height: 340px;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--sankris-purple);
+    --bs-btn-border-color: var(--sankris-purple);
+    --bs-btn-hover-bg: var(--sankris-pink);
+    --bs-btn-hover-border-color: var(--sankris-pink);
+    --bs-btn-active-bg: var(--sankris-violet);
+    --bs-btn-active-border-color: var(--sankris-violet);
+}
+
+.card {
+    color: #2a2233;
+}
+
+.card a {
+    color: var(--sankris-purple);
+}
+
+.program-badge {
+    background-color: #f6e6f3;
+    color: var(--sankris-purple);
+    font-weight: 600;
+    margin: 0 4px 4px 0;
+}
+
+.program-table td {
+    color: #2a2233;
+    padding: 4px 0;
 }

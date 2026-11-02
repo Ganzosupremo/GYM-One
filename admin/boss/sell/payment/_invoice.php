@@ -86,19 +86,19 @@ if (!function_exists('gymone_invoice_shell')) {
     .inv-logo { max-height: 64px; max-width: 230px; }
     .inv-head-title { text-align: right; }
     .inv-badge {
-        display: inline-block; background: #0950dc; color: #ffffff;
+        display: inline-block; background: #90278e; color: #ffffff;
         font-size: 22px; font-weight: bold; letter-spacing: 1px;
         padding: 9px 20px; border-radius: 10px;
     }
     .inv-num { color: #6b7280; font-size: 12px; margin-top: 6px; }
 
-    .inv-rule { height: 3px; background: #0950dc; border-radius: 3px; margin: 10px 0 16px; }
+    .inv-rule { height: 3px; background: #90278e; border-radius: 3px; margin: 10px 0 16px; }
 
     /* Meta */
     .inv-meta { width: 100%; margin-bottom: 4px; }
     .inv-meta td { vertical-align: top; }
     .inv-meta-r { text-align: right; }
-    .inv-biz { color: #0950dc; font-size: 16px; font-weight: bold; margin-bottom: 4px; }
+    .inv-biz { color: #90278e; font-size: 16px; font-weight: bold; margin-bottom: 4px; }
     .inv-line { color: #6b7280; font-size: 11px; line-height: 1.5; }
     .inv-k { color: #9ca3af; font-size: 11px; }
     .inv-v { color: #111827; font-weight: bold; font-size: 12px; }
@@ -116,7 +116,7 @@ if (!function_exists('gymone_invoice_shell')) {
     /* Táblázatok */
     .inv-table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; }
     .inv-table th, .inv-table td { padding: 9px 12px; font-size: 11px; }
-    .inv-th { background: #0950dc; color: #ffffff; text-align: left; font-weight: bold; }
+    .inv-th { background: #90278e; color: #ffffff; text-align: left; font-weight: bold; }
     .inv-th:first-child { border-radius: 8px 0 0 0; }
     .inv-th:last-child { border-radius: 0 8px 0 0; }
     .inv-table tbody td { border-bottom: 1px solid #e5e7eb; color: #1f2937; }
@@ -173,11 +173,11 @@ CSS;
         // Logók: kép, ha van; különben szöveges tartalék (nincs törött kép)
         $topLogoHtml = $logoSrc !== ''
             ? "<img src='{$logoSrc}' class='inv-logo' alt='Logo'>"
-            : "<span style='font-size:20px; font-weight:bold; color:#0950dc;'>{$businessName}</span>";
+            : "<span style='font-size:20px; font-weight:bold; color:#90278e;'>{$businessName}</span>";
 
         $partnerLogoHtml = $partnerLogoSrc !== ''
             ? "<img src='{$partnerLogoSrc}' width='90' alt='GYM ONE Logo COPYRIGHT DO NOT REMOVE'>"
-            : "<span style='font-size:13px; font-weight:bold; color:#0950dc;'>GYM One</span>";
+            : "<span style='font-size:13px; font-weight:bold; color:#90278e;'>GYM One</span>";
 
         return "
 <!doctype html>
