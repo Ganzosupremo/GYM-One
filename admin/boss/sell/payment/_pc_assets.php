@@ -1,8 +1,8 @@
 <!-- ===================== GYM One – közös checkout stílus (pc-) ===================== -->
 <style>
     .pc {
-        --pc-accent: #0950dc;
-        --pc-accent2: #096ed2;
+        --pc-accent: #90278e;
+        --pc-accent2: #3d59a7;
         --pc-ink: #0f172a;
         --pc-muted: #64748b;
         --pc-line: rgba(15, 23, 42, .08);
@@ -43,7 +43,7 @@
         width: 56px; height: 56px; flex: 0 0 56px; border-radius: 50%; position: relative;
         background: linear-gradient(135deg, var(--pc-accent), var(--pc-accent2)); color: #fff;
         display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800;
-        box-shadow: 0 8px 20px rgba(9, 80, 220, .3);
+        box-shadow: 0 8px 20px rgba(144, 39, 142, .3);
     }
     .pc-avatar .pc-ava-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
     .pc-buyer-name { font-size: 19px; font-weight: 800; color: var(--pc-ink); }
@@ -75,7 +75,7 @@
 
     /* gombok */
     .pc-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; border-radius: 13px; padding: 12px 20px; font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: none; transition: .15s; }
-    .pc-btn-primary { background: linear-gradient(135deg, var(--pc-accent), var(--pc-accent2)); color: #fff; box-shadow: 0 8px 20px rgba(9, 80, 220, .3); }
+    .pc-btn-primary { background: linear-gradient(135deg, var(--pc-accent), var(--pc-accent2)); color: #fff; box-shadow: 0 8px 20px rgba(144, 39, 142, .3); }
     .pc-btn-primary:hover { filter: brightness(1.06); transform: translateY(-1px); color: #fff; }
     .pc-btn-success { background: linear-gradient(135deg, #16a34a, #15803d); color: #fff; box-shadow: 0 8px 20px rgba(22, 163, 74, .3); }
     .pc-btn-success:hover { filter: brightness(1.06); transform: translateY(-1px); color: #fff; }
@@ -94,7 +94,7 @@
     .pc-item-side { display: flex; align-items: center; gap: 8px; }
     .pc-qtyform { display: flex; align-items: center; gap: 6px; }
     .pc-qty { width: 56px; height: 38px; border: 1.5px solid var(--pc-line); border-radius: 10px; text-align: center; font-weight: 700; background: #fff; outline: none; }
-    .pc-qty:focus { border-color: var(--pc-accent); box-shadow: 0 0 0 3px rgba(9, 80, 220, .12); }
+    .pc-qty:focus { border-color: var(--pc-accent); box-shadow: 0 0 0 3px rgba(144, 39, 142, .12); }
     .pc-iconbtn { width: 38px; height: 38px; border: none; border-radius: 10px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; transition: .13s; }
     .pc-iconbtn-save { background: #e0ecff; color: var(--pc-accent); }
     .pc-iconbtn-save:hover { background: #cfe0ff; }
@@ -107,7 +107,7 @@
     .pc-modal .modal-content { border: none; border-radius: 20px; box-shadow: 0 30px 80px rgba(2, 6, 23, .35); overflow: hidden; }
     .pc-modal .modal-body { padding: 28px; }
     .pc-modal-top { text-align: center; margin-bottom: 18px; }
-    .pc-modal-icon { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0950dc, #096ed2); color: #fff; font-size: 28px; box-shadow: 0 10px 26px rgba(9, 80, 220, .4); }
+    .pc-modal-icon { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #90278e, #3d59a7); color: #fff; font-size: 28px; box-shadow: 0 10px 26px rgba(144, 39, 142, .4); }
     .pc-modal-top h4 { margin: 0 0 6px; font-weight: 800; color: #0f172a; }
     .pc-modal-sub { margin: 0; color: #64748b; font-size: 14px; }
     .pc-modal-amount { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-radius: 13px; background: #f8fafc; border: 1px solid rgba(15, 23, 42, .08); margin-bottom: 18px; }
@@ -124,9 +124,9 @@
     }
     .pc-method-box i { font-size: 24px; color: #94a3b8; transition: .15s; }
     .pc-method:hover .pc-method-box { border-color: #93c5fd; }
-    .pc-method input:checked + .pc-method-box { border-color: #0950dc; background: #eff6ff; color: #0950dc; box-shadow: 0 6px 18px rgba(9, 80, 220, .18); }
-    .pc-method input:checked + .pc-method-box i { color: #0950dc; }
-    .pc-method input:focus-visible + .pc-method-box { box-shadow: 0 0 0 4px rgba(9, 80, 220, .2); }
+    .pc-method input:checked + .pc-method-box { border-color: #90278e; background: #eff6ff; color: #90278e; box-shadow: 0 6px 18px rgba(144, 39, 142, .18); }
+    .pc-method input:checked + .pc-method-box i { color: #90278e; }
+    .pc-method input:focus-visible + .pc-method-box { box-shadow: 0 0 0 4px rgba(144, 39, 142, .2); }
 
     .pc-modal-actions { display: flex; gap: 10px; }
     .pc-modal-actions .pc-btn { flex: 1; }

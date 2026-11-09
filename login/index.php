@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /* Halvány, lassan lélegző fényfoltok */
         .lg-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
         .lg-blob { position: absolute; border-radius: 50%; filter: blur(90px); }
-        .lg-blob-1 { width: 380px; height: 380px; background: #0950dc; opacity: .10; top: -130px; left: -90px; animation: lgDrift 22s ease-in-out infinite; }
+        .lg-blob-1 { width: 380px; height: 380px; background: #90278e; opacity: .10; top: -130px; left: -90px; animation: lgDrift 22s ease-in-out infinite; }
         .lg-blob-2 { width: 340px; height: 340px; background: #6d28d9; opacity: .08; bottom: -120px; right: -90px; animation: lgDrift 26s ease-in-out infinite reverse; }
         .lg-blob-3 { width: 260px; height: 260px; background: #22d3ee; opacity: .06; top: 40%; right: 8%; animation: lgDrift 30s ease-in-out infinite; }
         @keyframes lgDrift {
@@ -185,9 +185,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             transition: border-color .15s, box-shadow .15s, background .15s;
         }
         #login .form-control:focus {
-            border-color: #0950dc;
+            border-color: #90278e;
             background: #fff;
-            box-shadow: 0 0 0 4px rgba(9, 80, 220, .12);
+            box-shadow: 0 0 0 4px rgba(144, 39, 142, .12);
             outline: none;
         }
         #login .form-group { margin-bottom: 1rem; }
@@ -195,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /* Gomb */
         #login .btn-primary {
             width: 100%;
-            background: #0950dc !important;
+            background: #90278e !important;
             border: none !important;
             border-radius: 14px !important;
             padding: .8rem 1rem !important;
@@ -211,7 +211,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         #login .lg-links { text-align: center; margin-top: 1rem; }
         #login .lg-links small { color: #64748b; font-size: .9rem; display: block; }
         #login .lg-links small + small { margin-top: .35rem; }
-        #login .lg-links a { color: #0950dc; font-weight: 700; text-decoration: none; }
+        #login .lg-links a { color: #90278e; font-weight: 700; text-decoration: none; }
         #login .lg-links a:hover { text-decoration: underline; }
 
         /* GYM One copyright legalul */
@@ -220,7 +220,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center; padding: 28px 16px 24px; margin-top: 36px;
             color: #94a3b8; font-size: .85rem;
         }
-        .lg-copyright a { color: #0950dc; font-weight: 700; text-decoration: none; }
+        .lg-copyright a { color: #90278e; font-weight: 700; text-decoration: none; }
         .lg-copyright a:hover { text-decoration: underline; }
         .lg-copyright .lg-heart { color: #ef4444; }
 

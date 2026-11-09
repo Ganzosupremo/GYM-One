@@ -101,6 +101,13 @@ if (isset($_GET['user']) && is_numeric($_GET['user'])) {
     $verify = $row['confirmed'];
     $lastip = $row['lastip'];
     $balance = $row['profile_balance'];
+    // Sankris: ficha de gimnasta
+    $birthdate = $row['birthdate'] ?? null;
+    $gymnast_program_id = $row['program_id'] ?? null;
+    $gymnast_level = $row['gym_level'] ?? '';
+    $guardian_name = $row['guardian_name'] ?? '';
+    $guardian_phone = $row['guardian_phone'] ?? '';
+    $medical_notes = $row['medical_notes'] ?? '';
   } else {
     echo "The user does not exist!";
     exit;
@@ -163,6 +170,51 @@ if (isset($_POST['save'])) {
   }
 }
 
+
+// Sankris: datos de gimnasta (programa, nivel, tutor y notas médicas)
+$programs = [];
+$programsResult = $conn->query("SELECT * FROM programs ORDER BY sort_order, name");
+if ($programsResult) {
+  $programs = $programsResult->fetch_all(MYSQLI_ASSOC);
+}
+
+$gymnast_age = null;
+if (!empty($birthdate)) {
+  $gymnast_age = (new DateTime($birthdate))->diff(new DateTime('today'))->y;
+}
+
+$suggested_programs = [];
+if ($gymnast_age !== null) {
+  foreach ($programs as $program) {
+    $fits_min = $program['age_min'] === null || $gymnast_age >= (int) $program['age_min'];
+    $fits_max = $program['age_max'] === null || $gymnast_age <= (int) $program['age_max'];
+    if ($fits_min && $fits_max) {
+      $suggested_programs[] = $program['name'];
+    }
+  }
+}
+
+if (isset($_POST['save_gymnast'])) {
+  $new_program_id = !empty($_POST['program_id']) ? (int) $_POST['program_id'] : null;
+  $new_level = trim($_POST['gym_level'] ?? '');
+  $new_guardian_name = trim($_POST['guardian_name'] ?? '');
+  $new_guardian_phone = trim($_POST['guardian_phone'] ?? '');
+  $new_medical_notes = trim($_POST['medical_notes'] ?? '');
+
+  $stmt_gymnast = $conn->prepare("UPDATE users SET program_id = ?, gym_level = ?, guardian_name = ?, guardian_phone = ?, medical_notes = ? WHERE userid = ?");
+  $stmt_gymnast->bind_param("issssi", $new_program_id, $new_level, $new_guardian_name, $new_guardian_phone, $new_medical_notes, $useridgymuser);
+  if ($stmt_gymnast->execute()) {
+    $gymnast_program_id = $new_program_id;
+    $gymnast_level = $new_level;
+    $guardian_name = $new_guardian_name;
+    $guardian_phone = $new_guardian_phone;
+    $medical_notes = $new_medical_notes;
+    $alerts_html .= '<div class="alert alert-success">' . $translations["success-update"] . '</div>';
+  } else {
+    $alerts_html .= '<div class="alert alert-danger">Unexpected error: ' . htmlspecialchars($conn->error) . '</div>';
+  }
+  $stmt_gymnast->close();
+}
 
 if (isset($_POST['delete_user'])) {
     $sql_get = "SELECT email FROM users WHERE userid = ?";
@@ -304,7 +356,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userid'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../../assets/css/dashboard.css">
-  <link rel="shortcut icon" href="https://gymoneglobal.com/assets/img/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../../../assets/img/brand/favicon.png" type="image/x-icon">
 </head>
 <!-- ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -318,12 +370,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userid'])) {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="../../../assets/img/logo.png" width="50px" alt="Logo"></a>
+        <a class="navbar-brand" href="#"><img src="../../../assets/img/brand/logo-white.png" width="50px" alt="Logo"></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="../../dashboard"><i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?></a>
           </li>
+          <li><a href="../../sankris/"><i class="bi bi-people-fill"></i> Sankris: familias y cobros</a></li>
           <li class="active"><a href="../"><i class="bi bi-people"></i> <?php echo $translations["users"]; ?></a></li>
           <li><a href="../../statistics"><i class="bi bi-bar-chart"></i> <?php echo $translations["statspage"]; ?></a>
           </li>
@@ -367,13 +420,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userid'])) {
   <div class="container-fluid">
     <div class="row content">
       <div class="col-sm-2 sidenav hidden-xs text-center">
-        <h2><img src="../../../assets/img/logo.png" width="105px" alt="Logo"></h2>
+        <h2><img src="../../../assets/img/brand/logo-white.png" width="105px" alt="Logo"></h2>
         <p class="lead mb-4 fs-4"><?php echo $business_name ?> - <?php echo $version; ?></p>
         <ul class="nav nav-pills nav-stacked">
           <li class="sidebar-item">
             <a class="sidebar-link" href="../../dashboard/">
               <i class="bi bi-speedometer"></i> <?php echo $translations["mainpage"]; ?>
             </a>
+          </li>
+          <li class="sidebar-item">
+              <a class="sidebar-link" href="../../sankris/">
+                  <i class="bi bi-people-fill"></i> Sankris: familias y cobros
+              </a>
           </li>
           <li class="sidebar-item active">
             <a class="sidebar-link" href="#">
@@ -622,15 +680,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userid'])) {
             </div>
           </div>
         </div>
+        <!-- Sankris: ficha de gimnasta -->
+        <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+          <div class="col-md-12">
+            <div class="card shadow">
+              <div class="card-heading">
+                <h5 class="card-title"><i class="bi bi-person-badge"></i> <?php echo $translations["gymnastprofile"] ?? "Ficha de gimnasta"; ?></h5>
+              </div>
+              <div class="card-body">
+                <p>
+                  <strong><?php echo $translations["age"] ?? "Edad"; ?>:</strong>
+                  <?php echo $gymnast_age !== null ? (int) $gymnast_age : '-'; ?>
+                  <?php if (!empty($suggested_programs)): ?>
+                    &nbsp;·&nbsp;<strong><?php echo $translations["suggestedprograms"] ?? "Programas para su edad"; ?>:</strong>
+                    <?php echo htmlspecialchars(implode(', ', $suggested_programs)); ?>
+                  <?php endif; ?>
+                </p>
+                <form method="POST">
+                  <div class="row">
+                    <div class="col-sm-6 form-group">
+                      <label for="program_id"><?php echo $translations["program"] ?? "Programa"; ?></label>
+                      <select class="form-control" id="program_id" name="program_id">
+                        <option value="">-</option>
+                        <?php foreach ($programs as $program): ?>
+                          <option value="<?php echo (int) $program['id']; ?>" <?php echo ((int) $gymnast_program_id === (int) $program['id']) ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($program['name']); ?>
+                          </option>
+                        <?php endforeach; ?>
+                      </select>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      <label for="gym_level"><?php echo $translations["gymlevel"] ?? "Nivel"; ?></label>
+                      <input type="text" class="form-control" id="gym_level" name="gym_level" maxlength="50"
+                        placeholder="<?php echo htmlspecialchars($translations["gymlevelplaceholder"] ?? "Ej.: Nivel 1, Nivel 2, Nivel 3+"); ?>"
+                        value="<?php echo htmlspecialchars($gymnast_level ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      <label for="guardian_name"><?php echo $translations["guardianname"] ?? "Nombre del padre, madre o tutor"; ?></label>
+                      <input type="text" class="form-control" id="guardian_name" name="guardian_name" maxlength="100"
+                        value="<?php echo htmlspecialchars($guardian_name ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      <label for="guardian_phone"><?php echo $translations["guardianphone"] ?? "Teléfono del tutor"; ?></label>
+                      <input type="tel" class="form-control" id="guardian_phone" name="guardian_phone" maxlength="30"
+                        value="<?php echo htmlspecialchars($guardian_phone ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                    </div>
+                    <div class="col-sm-12 form-group">
+                      <label for="medical_notes"><?php echo $translations["medicalnotes"] ?? "Notas médicas (alergias, lesiones, condiciones)"; ?></label>
+                      <textarea class="form-control" id="medical_notes" name="medical_notes" rows="3"><?php echo htmlspecialchars($medical_notes ?? '', ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
+                  </div>
+                  <button type="submit" name="save_gymnast" class="btn btn-primary"><i class="bi bi-save"></i>
+                    <?php echo $translations["save"]; ?></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-6">
             <div class="panel panel-default">
               <div class="panel-heading text-center"
-                style="background: rgb(9, 80, 220);
-    background: -moz-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=' #0950dc', endColorstr='#096ed2' , GradientType=1); color: white;">
+                style="background: rgb(144, 39, 142);
+    background: -moz-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=' #90278e', endColorstr='#3d59a7' , GradientType=1); color: white;">
                 <div style="margin-bottom: 10px;">
                   <span class="label <?php
                   if (!isset($row) || $row === null) {

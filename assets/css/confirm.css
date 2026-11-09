@@ -1,7 +1,7 @@
   :root {
-      --main-color: #0950dc;
+      --main-color: #90278e;
       --secondary-color: #333333;
-      --active-color: #0a62ff;
+      --active-color: #eb008b;
   }
 
   body {
@@ -199,13 +199,13 @@
       gap: 0.5rem;
       transition: all 0.3s ease;
       margin-top: 1rem;
-      box-shadow: 0 4px 15px rgba(9, 80, 220, 0.3);
+      box-shadow: 0 4px 15px rgba(144, 39, 142, 0.3);
       animation: fadeIn 0.8s ease-out 1s both;
   }
 
   .action-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(9, 80, 220, 0.4);
+      box-shadow: 0 6px 20px rgba(144, 39, 142, 0.4);
       color: white;
   }
 

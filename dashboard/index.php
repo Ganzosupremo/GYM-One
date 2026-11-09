@@ -284,7 +284,7 @@ if ($validTicketFound && !empty($buydate) && !empty($expiredate)) {
     <style>
         /* ====== Modern dashboard tartalom (scoped: .dsh) ====== */
         .dsh {
-            --d-accent: #0950dc;
+            --d-accent: #90278e;
             --d-ink: #0f172a;
             --d-muted: #64748b;
             --d-line: rgba(15, 23, 42, .08);
@@ -293,9 +293,9 @@ if ($validTicketFound && !empty($buydate) && !empty($expiredate)) {
         /* Üdvözlő fejléc */
         .dsh-welcome {
             display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-            background: linear-gradient(135deg, #0950dc, #2f73f0);
+            background: linear-gradient(135deg, #90278e, #2f73f0);
             color: #fff; border-radius: 20px; padding: 22px 26px; margin-bottom: 22px;
-            box-shadow: 0 16px 40px rgba(9, 80, 220, .28);
+            box-shadow: 0 16px 40px rgba(144, 39, 142, .28);
         }
         .dsh-welcome-hi { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; opacity: .85; }
         .dsh-welcome-name { font-size: 24px; font-weight: 800; margin-top: 2px; }
@@ -316,12 +316,12 @@ if ($validTicketFound && !empty($buydate) && !empty($expiredate)) {
             background: #fff; border: 1px solid var(--d-line); border-radius: 18px; padding: 18px;
             box-shadow: 0 10px 28px rgba(15, 23, 42, .06); transition: transform .15s, box-shadow .15s;
         }
-        .dsh-stat:hover { transform: translateY(-3px); box-shadow: 0 16px 38px rgba(9, 80, 220, .12); }
+        .dsh-stat:hover { transform: translateY(-3px); box-shadow: 0 16px 38px rgba(144, 39, 142, .12); }
         .dsh-stat-icon {
             width: 52px; height: 52px; flex: 0 0 52px; border-radius: 14px;
             display: flex; align-items: center; justify-content: center; font-size: 24px;
         }
-        .dsh-ic-blue { background: #e6efff; color: #0950dc; }
+        .dsh-ic-blue { background: #e6efff; color: #90278e; }
         .dsh-ic-green { background: #dcfce7; color: #16a34a; }
         .dsh-ic-amber { background: #fef3c7; color: #d97706; }
         .dsh-ic-violet { background: #ede9fe; color: #7c3aed; }
@@ -374,7 +374,7 @@ if ($validTicketFound && !empty($buydate) && !empty($expiredate)) {
         .dsh-mem-ticket { font-size: 18px; font-weight: 800; color: var(--d-ink); }
         .dsh-mem-sub { font-size: 12px; color: var(--d-muted); margin-top: 2px; }
         .dsh-progress { height: 10px; background: #eef2f7; border-radius: 999px; overflow: hidden; margin: 14px 0 10px; }
-        .dsh-progress > span { display: block; height: 100%; background: linear-gradient(90deg, #0950dc, #2f73f0); border-radius: 999px; }
+        .dsh-progress > span { display: block; height: 100%; background: linear-gradient(90deg, #90278e, #2f73f0); border-radius: 999px; }
         .dsh-mem-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; padding: 6px 0; border-top: 1px solid var(--d-line); }
         .dsh-mem-row:first-of-type { border-top: none; }
         .dsh-mem-row .k { color: var(--d-muted); }

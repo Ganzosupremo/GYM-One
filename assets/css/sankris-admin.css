@@ -1,0 +1,25 @@
+/* Sankris module admin pages */
+.sk-main { padding: 18px 24px 40px; background: #f7f5fa; min-height: 100vh; }
+.sk-topbar { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.sk-topbar h3 { margin: 0; color: #2a2233; font-weight: 600; }
+.sk-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(42, 34, 51, .08); padding: 16px 18px; margin-bottom: 18px; }
+.sk-card h4 { margin-top: 0; color: #90278e; font-weight: 600; }
+.sk-card h5 { color: #6a50a0; font-weight: 600; margin-top: 18px; }
+.sk-stat { background: #fff; border-radius: 10px; padding: 14px 16px; margin-bottom: 18px; border-left: 5px solid #90278e; box-shadow: 0 1px 3px rgba(42, 34, 51, .08); }
+.sk-stat .v { font-size: 26px; font-weight: 700; color: #2a2233; }
+.sk-stat .l { color: #6b6375; font-size: 13px; }
+.sk-stat.pink { border-left-color: #eb008b; } .sk-stat.blue { border-left-color: #3d59a7; } .sk-stat.warn { border-left-color: #e07b00; }
+.sk-main .table > thead > tr > th { color: #6b6375; font-weight: 600; border-bottom-width: 1px; font-size: 12px; text-transform: uppercase; }
+.sk-main .table td { vertical-align: middle !important; }
+.sk-inline { display: inline; }
+.sk-muted { color: #8a8294; }
+.sk-session { border-left: 5px solid #90278e; }
+.sk-session.cancelled { opacity: .55; }
+.sk-form-row .form-group { margin-bottom: 10px; }
+.sk-chip { display: inline-block; background: #f6e6f3; color: #90278e; border-radius: 12px; padding: 1px 9px; font-size: 12px; margin: 0 3px 3px 0; }
+.sk-medical { background: #fff4f4; border: 1px solid #f3c2c2; border-radius: 6px; padding: 6px 10px; color: #8a1c1c; }
+.label-primary { background-color: #6a50a0; }
+.btn-xs { margin: 1px; }
+.sk-main a:not(.btn):not(.label) { color: #90278e; }
+.sk-main a:not(.btn):not(.label):hover { color: #eb008b; }
+.sk-main .btn-link { color: #90278e; }

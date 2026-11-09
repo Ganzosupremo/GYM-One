@@ -114,7 +114,7 @@ function runUpdateProcess()
     try {
         // Konfiguráció
         $config = [
-            'github_username' => 'mayerbalintdev',
+            'github_username' => 'Ganzosupremo',
             'github_repository' => 'GYM-One',
             'github_branch' => 'main',
             'zip_file' => 'update.zip',
@@ -476,10 +476,10 @@ if (!function_exists('curl_init')) {
     <title><?php echo $translations["updatepage"]; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="shortcut icon" href="https://gymoneglobal.com/assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/img/brand/favicon.png" type="image/x-icon">
     <style>
         :root {
-            --primary-color: #0d6efd;
+            --primary-color: #6a50a0;
             --primary-hover: #0b5ed7;
             --dark-color: #212529;
             --light-color: #f8f9fa;

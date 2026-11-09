@@ -10,45 +10,45 @@ body {
 }
 
 .sidenav {
-    background: rgb(9, 80, 220);
-    background: -moz-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0950dc", endColorstr="#096ed2", GradientType=1);
+    background: rgb(144, 39, 142);
+    background: -moz-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#90278e", endColorstr="#3d59a7", GradientType=1);
     height: auto;
     overflow-y: auto;
 }
 
 .navbar-header {
-    background: rgb(9, 80, 220);
-    background: -moz-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0950dc", endColorstr="#096ed2", GradientType=1);
+    background: rgb(144, 39, 142);
+    background: -moz-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#90278e", endColorstr="#3d59a7", GradientType=1);
 }
 
 ul.nav.navbar-nav {
-    background: rgb(9, 80, 220);
-    background: -moz-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0950dc", endColorstr="#096ed2", GradientType=1);
+    background: rgb(144, 39, 142);
+    background: -moz-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#90278e", endColorstr="#3d59a7", GradientType=1);
 }
 
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-    background: rgb(9, 80, 220);
-    background: -moz-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    background: linear-gradient(90deg, rgba(9, 80, 220, 1) 0%, rgba(9, 88, 210, 1) 50%, rgba(9, 110, 210, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0950dc", endColorstr="#096ed2", GradientType=1);
+    background: rgb(144, 39, 142);
+    background: -moz-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    background: linear-gradient(90deg, rgba(144, 39, 142, 1) 0%, rgba(106, 80, 160, 1) 50%, rgba(61, 89, 167, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#90278e", endColorstr="#3d59a7", GradientType=1);
 }
 
 .navbar-inverse .navbar-nav>.active>a,
 .navbar-inverse .navbar-nav>.active>a:focus,
 .navbar-inverse .navbar-nav>.active>a:hover {
     color: #f1f1f1;
-    background-color: #337ab7
+    background-color: #6a50a0
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -180,7 +180,7 @@ a {
 }
 
 .linkhref {
-    color: #0950dc !important;
+    color: #90278e !important;
 }
 
 a:link {
@@ -394,15 +394,15 @@ i.bi.bi-exclamation-circle {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 10px rgba(9, 80, 220, 0.4);
+        box-shadow: 0 0 10px rgba(144, 39, 142, 0.4);
     }
 
     50% {
-        box-shadow: 0 0 20px rgba(9, 80, 220, 0.9);
+        box-shadow: 0 0 20px rgba(144, 39, 142, 0.9);
     }
 
     100% {
-        box-shadow: 0 0 10px rgba(9, 80, 220, 0.4);
+        box-shadow: 0 0 10px rgba(144, 39, 142, 0.4);
     }
 }
 
@@ -414,4 +414,42 @@ i.bi.bi-exclamation-circle {
 
 .btn-github:hover {
     background-color: #444c56;
+}
+/* ===== Sankris Gymnastics ===== */
+.btn-primary,
+.btn-primary:focus {
+    background-color: #90278e;
+    border-color: #7a1f78;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:active:focus {
+    background-color: #eb008b;
+    border-color: #c80076;
+}
+
+.card-body a:not(.btn),
+.panel-body a:not(.btn) {
+    color: #90278e;
+}
+
+.sidenav a.active,
+.sidenav .sidebar-ling.active,
+.sidebar-item.active > a,
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+    background-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+.label-primary,
+.bg-primary,
+.progress-bar {
+    background-color: #90278e;
+}
+
+.text-primary {
+    color: #90278e;
 }
